@@ -1,0 +1,693 @@
+Unity Editor version:    6000.0.43f1 (97272b72f107)
+Branch:                  6000.0/release
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 15.3.1 (Build 24D70)
+Darwin version:          24.3.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        24576 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+/Users/lutyk/My project (3)
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+58862
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: /Users/lutyk/My project (3)
+/Users/lutyk/My project (3)
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8622409792]  Target information:
+
+Player connection [8622409792]  * "[IP] 192.168.0.119 [Port] 0 [Flags] 2 [Guid] 1112629283 [EditorId] 1112629283 [Version] 1048832 [Id] OSXEditor(0,Anastasias-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+
+Player connection [8622409792] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8622409792] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.43f1 (97272b72f107)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/lutyk/My project (3)/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+ preferred device: Apple M4 Pro (high power)
+Metal devices available: 1
+0: Apple M4 Pro (high power)
+Using device Apple M4 Pro (high power)
+Initializing Metal device caps: Apple M4 Pro
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56330
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/6000.0.43f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000620 seconds.
+- Loaded All Assemblies, in  0.164 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.214 seconds
+Domain Reload Profiling: 379ms
+	BeginReloadAssembly (36ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (79ms)
+		LoadAssemblies (36ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (78ms)
+			TypeCache.Refresh (77ms)
+				TypeCache.ScanAssembly (71ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (214ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (191ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (37ms)
+			ProcessInitializeOnLoadAttributes (92ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.318 seconds
+Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.367 seconds
+Domain Reload Profiling: 685ms
+	BeginReloadAssembly (64ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (209ms)
+		LoadAssemblies (111ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (125ms)
+			TypeCache.Refresh (98ms)
+				TypeCache.ScanAssembly (90ms)
+			BuildScriptInfoCaches (19ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (367ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (291ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (55ms)
+			ProcessInitializeOnLoadAttributes (193ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Launching external process: /Applications/Unity/Hub/Editor/6000.0.43f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.24 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 198 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5931 unused Assets / (3.7 MB). Loaded Objects now: 6615.
+Memory consumption went from 159.9 MB to 156.2 MB.
+Total: 4.527083 ms (FindLiveObjects: 0.426500 ms CreateObjectMapping: 0.113791 ms MarkObjects: 2.952500 ms  DeleteObjects: 1.033667 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 550421.630770 seconds.
+  path: Assets/InputSystem_Actions.inputactions
+  artifactKey: Guid(052faaac586de48259a63d0c4782560b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/InputSystem_Actions.inputactions using Guid(052faaac586de48259a63d0c4782560b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6efe8f8ed83d72ea062c69cf722fe52c') in 0.156758375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/TutorialInfo/Scripts/Readme.cs
+  artifactKey: Guid(fcf7219bab7fe46a1ad266029b2fee19) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/TutorialInfo/Scripts/Readme.cs using Guid(fcf7219bab7fe46a1ad266029b2fee19) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '48e996eb7b362a033b6c9d70fa658acb') in 0.006216125 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x31ffcb000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.322 seconds
+Refreshing native plugins compatible for Editor in 0.16 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.376 seconds
+Domain Reload Profiling: 700ms
+	BeginReloadAssembly (97ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (20ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (10ms)
+	LoadAllAssembliesAndSetupDomain (191ms)
+		LoadAssemblies (131ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (84ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (71ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (377ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (278ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (197ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5937 unused Assets / (3.5 MB). Loaded Objects now: 6642.
+Memory consumption went from 153.3 MB to 149.8 MB.
+Total: 4.109666 ms (FindLiveObjects: 0.246292 ms CreateObjectMapping: 0.108791 ms MarkObjects: 2.877500 ms  DeleteObjects: 0.876833 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 83.481196 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Documentation/ReadMe.pdf
+  artifactKey: Guid(3d7c096d1e21a7746ad908d074b38d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Documentation/ReadMe.pdf using Guid(3d7c096d1e21a7746ad908d074b38d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e0c52ab9019c1ad3e993da32a39615b8') in 0.010057917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.531653 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Gizmos/IconGizmo.png
+  artifactKey: Guid(e13f4281a295b08448d3004bd4d0e006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Gizmos/IconGizmo.png using Guid(e13f4281a295b08448d3004bd4d0e006) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '11b0161f79fae5ffa13196f0f0e50453') in 0.028942292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.687674 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Black.mat
+  artifactKey: Guid(391ed153cf8ddf14bb6bb507aababd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Black.mat using Guid(391ed153cf8ddf14bb6bb507aababd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ca9895036034ed8f39405d581009d90') in 0.235775791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Green.mat
+  artifactKey: Guid(6da8696dd62c51b48aadb72a119000dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Green.mat using Guid(6da8696dd62c51b48aadb72a119000dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0f013c5fca4be6c7836f68324fa2c26a') in 0.005393833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/White.mat
+  artifactKey: Guid(a64166f8d6b5d554d864cdb506267f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/White.mat using Guid(a64166f8d6b5d554d864cdb506267f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a17e3b8150557f215e838710e4690755') in 0.00360975 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonLeg.mat
+  artifactKey: Guid(4b2af32b7e21aa04fa1c074b2d4061b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonLeg.mat using Guid(4b2af32b7e21aa04fa1c074b2d4061b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '441fc0ccbb1a83253b72c77e75bf22e9') in 0.003796875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Red.mat
+  artifactKey: Guid(f734cd65c8b1dec47bef4004adc49877) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Red.mat using Guid(f734cd65c8b1dec47bef4004adc49877) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c9a27744663386162d7791875a1fb2f') in 0.003664833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.263206 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Prefab/Model.prefab
+  artifactKey: Guid(6eacc264393916443aa9c8e7ef0ac796) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Prefab/Model.prefab using Guid(6eacc264393916443aa9c8e7ef0ac796) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '26844b9083c4512961bb5476a9c0cef1') in 0.0461325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 174
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.591017 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Textures/CarbonTile.png
+  artifactKey: Guid(abe37a64a1e0c4946ba55240fbef73fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Textures/CarbonTile.png using Guid(abe37a64a1e0c4946ba55240fbef73fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fb63f63bfd03188f5af4c3a162ab1e29') in 0.003508667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.410863 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab
+  artifactKey: Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab using Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '97d1ae5bbe0c93ea53d949b2f7832891') in 0.012080542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 187
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.640550 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Settings/InputManager.preset
+  artifactKey: Guid(c67ff14d0c232904ebee011d9b6cccd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Settings/InputManager.preset using Guid(c67ff14d0c232904ebee011d9b6cccd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '848d1ea2ea9fdf96c1a6827b572922c7') in 0.002136292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.973037 seconds.
+  path: Assets/Settings/DefaultVolumeProfile.asset
+  artifactKey: Guid(ab09877e2e707104187f6f83e2f62510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Settings/DefaultVolumeProfile.asset using Guid(ab09877e2e707104187f6f83e2f62510) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10528149371aefc32227726816d72a59') in 0.000429958 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 160.180293 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/FPVWithGamepad.unity
+  artifactKey: Guid(6f3b5ab4bffa62842b99ba8127faac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/FPVWithGamepad.unity using Guid(6f3b5ab4bffa62842b99ba8127faac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '983a49037b28f9d032366d8a902cf6f8') in 0.00041275 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 87.198353 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Sounds/MotorSound.wav
+  artifactKey: Guid(255bf90da549b634d99604eb3dac25ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Sounds/MotorSound.wav using Guid(255bf90da549b634d99604eb3dac25ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f38ff15c91c2460b8536bcf7cd3e26ad') in 0.034136792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.101816 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/PCInput.unity
+  artifactKey: Guid(99166d445c8805e4a832b0799c8c90d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/PCInput.unity using Guid(99166d445c8805e4a832b0799c8c90d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b6a427d98c62740a668be52653692665') in 0.000266083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.786521 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab
+  artifactKey: Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab using Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '420d184904d23b913be9d6ed4be1c1a7') in 0.012937167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 187
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.518264 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AltitudeHoldQuad.prefab
+  artifactKey: Guid(74807b2911d358b48983a1779fac3a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AltitudeHoldQuad.prefab using Guid(74807b2911d358b48983a1779fac3a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09fd7762ccfe1faacfe5af15a00ac7f3') in 0.010040625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 183
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.985400 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/SelfLevelingQuad.prefab
+  artifactKey: Guid(adb540b78007b484fb4e85791757953c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/SelfLevelingQuad.prefab using Guid(adb540b78007b484fb4e85791757953c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '022203e9f5c6110ad7c5f677e2f67c82') in 0.0077435 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 183
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.223635 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials
+  artifactKey: Guid(75b298c6888682c4c857c9e7890917df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials using Guid(75b298c6888682c4c857c9e7890917df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '377db0c5ae10b65c2db8a6c5f3b7542e') in 0.000383 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.456849 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/SelfLevelingQuad.prefab
+  artifactKey: Guid(adb540b78007b484fb4e85791757953c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/SelfLevelingQuad.prefab using Guid(adb540b78007b484fb4e85791757953c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b56117fed095382ed8efa84334954e1') in 0.011081625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 183
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.079486 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Prefab/Model.prefab
+  artifactKey: Guid(6eacc264393916443aa9c8e7ef0ac796) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Prefab/Model.prefab using Guid(6eacc264393916443aa9c8e7ef0ac796) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a71d6fdb7d73b846dac5c4b999761471') in 0.010623583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 176
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.252639 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Scripts/PCDroneEmulator.cs
+  artifactKey: Guid(82d367c92722bc74093df063e646e773) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Scripts/PCDroneEmulator.cs using Guid(82d367c92722bc74093df063e646e773) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3a2e38894d5ade0d65eaec051a8a0e39') in 0.000371459 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.827696 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonTile.mat
+  artifactKey: Guid(225b90b1faaab48c083dae04e8fc1225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonTile.mat using Guid(225b90b1faaab48c083dae04e8fc1225) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21ce5eca381b15ba7aaeaac80d11d484') in 0.011439041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.389824 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/FPVWithGamepad.unity
+  artifactKey: Guid(6f3b5ab4bffa62842b99ba8127faac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Scene/FPVWithGamepad.unity using Guid(6f3b5ab4bffa62842b99ba8127faac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e963e16d6d0634ae526ba25696236147') in 0.000362584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x17ffab000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.321 seconds
+Refreshing native plugins compatible for Editor in 0.19 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.366 seconds
+Domain Reload Profiling: 688ms
+	BeginReloadAssembly (100ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (11ms)
+	LoadAllAssembliesAndSetupDomain (186ms)
+		LoadAssemblies (124ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (87ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (75ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (366ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (269ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (53ms)
+			ProcessInitializeOnLoadAttributes (183ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5937 unused Assets / (3.4 MB). Loaded Objects now: 6715.
+Memory consumption went from 162.1 MB to 158.6 MB.
+Total: 4.212375 ms (FindLiveObjects: 0.262208 ms CreateObjectMapping: 0.106167 ms MarkObjects: 2.902750 ms  DeleteObjects: 0.941208 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x17ffab000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.316 seconds
+Refreshing native plugins compatible for Editor in 0.19 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.359 seconds
+Domain Reload Profiling: 677ms
+	BeginReloadAssembly (86ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (10ms)
+	LoadAllAssembliesAndSetupDomain (196ms)
+		LoadAssemblies (133ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (86ms)
+			TypeCache.Refresh (3ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (76ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (359ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (266ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (184ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5937 unused Assets / (3.1 MB). Loaded Objects now: 6717.
+Memory consumption went from 160.3 MB to 157.2 MB.
+Total: 4.126416 ms (FindLiveObjects: 0.271750 ms CreateObjectMapping: 0.099084 ms MarkObjects: 2.878500 ms  DeleteObjects: 0.876916 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x17ffab000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.316 seconds
+Refreshing native plugins compatible for Editor in 0.18 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.355 seconds
+Domain Reload Profiling: 673ms
+	BeginReloadAssembly (83ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (10ms)
+	LoadAllAssembliesAndSetupDomain (198ms)
+		LoadAssemblies (133ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (89ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (76ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (355ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (261ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (47ms)
+			ProcessInitializeOnLoadAttributes (183ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5937 unused Assets / (3.4 MB). Loaded Objects now: 6719.
+Memory consumption went from 158.7 MB to 155.3 MB.
+Total: 4.198000 ms (FindLiveObjects: 0.279750 ms CreateObjectMapping: 0.107083 ms MarkObjects: 2.848750 ms  DeleteObjects: 0.962209 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 1022.768490 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab
+  artifactKey: Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Prefab/AcroModeQuad.prefab using Guid(2fab902b7be71744ebf8a95bf26e4071) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f2a138f1a4371e2237dc1ba3f02768e0') in 0.217858375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 188
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.602687 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Settings/InputManager.preset
+  artifactKey: Guid(c67ff14d0c232904ebee011d9b6cccd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Settings/InputManager.preset using Guid(c67ff14d0c232904ebee011d9b6cccd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc278f491303ef29ecb88a43b8fc3de3') in 0.002429625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 90.054191 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Black.mat
+  artifactKey: Guid(391ed153cf8ddf14bb6bb507aababd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Black.mat using Guid(391ed153cf8ddf14bb6bb507aababd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7624cf30406abbf14935b8e4ff5f0ea') in 0.056100291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Green.mat
+  artifactKey: Guid(6da8696dd62c51b48aadb72a119000dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Green.mat using Guid(6da8696dd62c51b48aadb72a119000dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe03cf76219295c8fa079cb421672744') in 0.003740083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/White.mat
+  artifactKey: Guid(a64166f8d6b5d554d864cdb506267f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/White.mat using Guid(a64166f8d6b5d554d864cdb506267f4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '64ad84469eca1fbdb91581de6dbbca9b') in 0.004009875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Yellow.mat
+  artifactKey: Guid(61660a3384d671a43b3a1d186f038c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Yellow.mat using Guid(61660a3384d671a43b3a1d186f038c71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1fb5e476c8c006907c906c04d1cef013') in 0.0034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonLeg.mat
+  artifactKey: Guid(4b2af32b7e21aa04fa1c074b2d4061b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonLeg.mat using Guid(4b2af32b7e21aa04fa1c074b2d4061b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '774c3914519851dc9d4cbc674032d0a2') in 0.0043765 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Silver.mat
+  artifactKey: Guid(2bf1e9eaaa4fc3247a1fdfd4aa237235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Silver.mat using Guid(2bf1e9eaaa4fc3247a1fdfd4aa237235) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b80871e1941c862eca1311eaf44ff05f') in 0.003808708 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonTile.mat
+  artifactKey: Guid(225b90b1faaab48c083dae04e8fc1225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/CarbonTile.mat using Guid(225b90b1faaab48c083dae04e8fc1225) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7557f1fcff68f78d0a8f6ec53c8d0411') in 0.004378458 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Red.mat
+  artifactKey: Guid(f734cd65c8b1dec47bef4004adc49877) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Red.mat using Guid(f734cd65c8b1dec47bef4004adc49877) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0039104ece41fe44e96981f5993fa398') in 0.003467834 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Gray.mat
+  artifactKey: Guid(09c0cb0dfbe59da469af79b87705b2a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Yuetility-Studios/YueUltimateDronePhysics/Model/Materials/Gray.mat using Guid(09c0cb0dfbe59da469af79b87705b2a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5fecc474eb68434275bfcec859c478a9') in 0.003736209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting

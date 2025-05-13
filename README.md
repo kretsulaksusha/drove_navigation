@@ -1,18 +1,45 @@
-# Optimal Drone Navigation Based on Visual Obstacle Analysis
+# Drone Navigation Based on Visual Obstacle Analysis
 
 Authors (team): [Anastasiia Pelekh](https://github.com/Drakonchyk), [Ksenia Kretsula](https://github.com/kretsulaksusha).
 
-## Description
+## Overview
 
-Autonomous drone navigation presents significant challenges, particularly in environments with complex obstacles and limited sensing capabilities. This research explores a conceptual system for real-time obstacle detection and avoidance using only a single onboard camera. Our approach leverages monocular vision combined with feature point detection to estimate depth and identify obstacles dynamically. By applying advanced computer vision techniques, the system processes visual input to detect, classify, and respond to obstacles in real time, enabling intelligent navigation based purely on visual data. This theoretical framework provides insights into the feasibility and potential of vision-based drone navigation without reliance on additional hardware sensors.
+Autonomous navigation for drones in environments with complex obstacles and limited sensing capabilities remains a significant challenge. This project presents a conceptual real-time obstacle detection and avoidance system based solely on a single onboard monocular camera.
+
+The system combines feature point detection with depth estimation models to dynamically interpret spatial information, enabling vision-only navigation. Theoretical and practical insights are provided into the design and performance of a lightweight, sensor-free drone navigation framework.
+
+### Features
+
+- Real-time depth estimation using monocular vision
+- Feature detection using FAST algorithm
+- Kalman filter for motion prediction
+- Support for multiple ONNX-based depth models
+- Visual results and performance logging
+
+## Table of Contents
+
+- [Overview](#overview)
+  - [Features](#features)
+- [Table of Contents](#table-of-contents)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  - [Compilation](#compilation)
+- [Model Setup](#model-setup)
+  - [Model Downloads](#model-downloads)
+- [Usage](#usage)
+  - [Running tests](#running-tests)
+  - [With Custom Image Input](#with-custom-image-input)
+  - [Running Main Program](#running-main-program)
+- [Results](#results)
+- [Sources](#sources)
 
 ## Prerequisites
 
 - GCC
 - CMake
-- CV
+- OpenCV
 
-### Installation
+## Installation
 
 ```shell
 git clone https://github.com/kretsulaksusha/drove_navigation.git
@@ -25,16 +52,42 @@ cd drove_navigation
 ./compile.sh -R
 ```
 
-### Usage
+## Model Setup
 
-Create directory `models` and download the model: [Midas GitHub: model-small.onnx](https://github.com/isl-org/MiDaS/releases/download/v2_1/model-small.onnx) for depth estimation.
+Create a directory called `models` and download the necessary ONNX models for depth estimation.
+
+Model Comparison (Small Versions):
+
+| Metric             | MiDaS                | Depth Anything V2 | Distill Any Depth |
+|--------------------|----------------------|-------------------|-------------------|
+| **Model Size**     | \~66.8 MB            | \~99.4 MB         | \~99.2 MB         |
+| **FPS**            | \~20-25 FPS          | \~N FPS           | \~N FPS           |
+| **Inference Time** | \~40-50 ms per frame | \~N ms per frame  | \~N ms per frame  |
+
+### Model Downloads
+
+- [Midas GitHub: `model-small.onnx`](https://github.com/isl-org/MiDaS/releases/download/v2_1/model-small.onnx)
+- [Depth Anything V2: `depth_anything_v2_vits.onnx`](https://github.com/fabio-sim/Depth-Anything-ONNX/releases)
 
 ```shell
 mkdir -p models
 wget -P ./models https://github.com/isl-org/MiDaS/releases/download/v2_1/model-small.onnx
+wget -P ./models https://github.com/fabio-sim/Depth-Anything-ONNX/releases/download/v2.0.0/depth_anything_v2_vits.onnx
 ```
 
-Then you can run test programs with the following commands:
+For [Distill Any Depth](https://distill-any-depth-official.github.io/) use a python script to convert the model to ONNX format. You can find the script in the `./scripts` directory.
+
+```shell
+# Install the required Python packages
+pip install -r requirements.txt
+
+# Run the script to convert the model
+python3 scripts/distill_any_depth_to_onnx.py
+```
+
+## Usage
+
+### Running tests
 
 ```shell
 ./bin/test_depth_estimation
@@ -42,33 +95,49 @@ Then you can run test programs with the following commands:
 ./bin/test_kalman
 ```
 
-Also, you can put an image in `./media` directory and run 2 test programs with the following command:
+### With Custom Image Input
+
+Place an image in `./media` and run:
 
 ```shell
 ./bin/test_depth_estimation your_image.png
 ./bin/test_fast_detector your_image.png
 ```
 
-To run the main program, you need to have a video file with a drone flight. You can use the provided video `./media/helicopter.mp4` or any other video file.
-The program will process the video, display the results in real time and save it in `./media/results` directory.
+### Running Main Program
+
+To analyze video footage, use the provided sample (`./media/helicopter.mp4`) or your own:
 
 ```shell
 ./bin/drone_navigation
 ```
 
-### Results
+The result will be displayed in real-time and saved in `./media/video_results` directory.
 
-Testing programs will display the results in real time and save them in `./media/results` directory.
+## Results
+
+Testing programs will display the results in real time and save them in `./media/depth_estimation_results` directory.
 
 ```shell
 ./bin/test_depth_estimation
 ```
 
 ![original_road](media/test_image_3.png)
-![depth_estimation](media/depth_estimation_results/test_image_3.png)
+MiDaS (color):
+![depth_estimation_midas_color](media/depth_estimation_results/test_image_3.png)
+MiDaS (grayscale):
+![depth_estimation_midas](media/depth_estimation_results/midas_test_image_3.png)
+Depth Anything V2:
+![depth_estimation_dav2](media/depth_estimation_results/dav2_test_image_3.png)
+Distill Any Depth:
+![depth_estimation_dad](media/depth_estimation_results/dad_test_image_3.png)
+
+The results above showcase outputs from all supported models. However, by default, the command will generate a depth map using only the **Distill Any Depth** model.
+
+To use a different model, you can modify the configuration in the `./src/depth_estimation.cpp` file.
 
 ```shell
-./bin/test_fast_detector
+./bin/drone_navigation
 ```
 
 <div style="display: flex; justify-content: space-between;">

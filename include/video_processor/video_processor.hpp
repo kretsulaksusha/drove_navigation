@@ -9,14 +9,15 @@
 #include <algorithm>
 #include <unordered_map>
 #include <fstream>
-#include "depth_estimation.hpp"
+#include "depth_estimator.hpp"
 #include "kalman.hpp"
 #include "feature_detector.hpp"
 #include "time_meas.hpp"
 #include "path_utils.hpp"
+#include "model_types.hpp"
 
-void selectROI(std::string &video_path);
-void processVideo(std::string &video_path);
+void selectROI(std::string &video_path, ModelType model_type = ModelType::DAD);
+void processVideo(std::string &video_path, ModelType model_type = ModelType::DAD);
 void mouseCallback(int event, int x, int y, int, void* userdata);
 
 #endif //DRONE_NAVIGATION_VIDEO_PROCESSOR_HPP

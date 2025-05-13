@@ -20,7 +20,7 @@ cv::Ptr<cv::xfeatures2d::BriefDescriptorExtractor> brief = cv::xfeatures2d::Brie
 int x_min = 36000, y_min = 36000, x_max = 0, y_max = 0;
 
 
-void processVideo(std::string &video_path) {
+void processVideo(std::string &video_path, ModelType model_type) {
     cv::VideoCapture video(video_path);
     if (!video.isOpened()) {
         std::cerr << "Error: Could not open video." << std::endl;
@@ -71,12 +71,14 @@ void processVideo(std::string &video_path) {
     cv::Mat frame;
     int frame_count = 0;
 
+    DepthEstimator depth_estimator(model_type);
+
     while (video.read(frame)) {
 #if MEASURE_TIME
         auto start_time = get_current_time_fenced();
 #endif
         // ------ Depth estimation ------
-        cv::Mat depth_map = depth_estimation(frame);
+        cv::Mat depth_map = depth_estimator.infer(frame);
 
         // Convert to grayscale
         cv::Mat depth_map_gray;
@@ -123,7 +125,7 @@ void processVideo(std::string &video_path) {
 
         float median_depth = getMedianDepth(depth_filtered);
 
-        // Filter keypoints based on depth map
+        // Filter keypoints based on a depth map
         std::vector<cv::KeyPoint> filtered_keypoints;
         for (auto& kp : keypoints) {
             int x = static_cast<int>(kp.pt.x);
@@ -210,7 +212,7 @@ void mouseCallback(int event, int x, int y, int, void* userdata) {
     }
 }
 
-void selectROI(std::string &video_path) {
+void selectROI(std::string &video_path, ModelType model_type) {
     cv::VideoCapture video(video_path);
     if (!video.isOpened()) {
         std::cerr << "Error: Could not open video." << std::endl;
@@ -243,5 +245,5 @@ void selectROI(std::string &video_path) {
     fast->detect(gray_roi, roiKeypoints);
     brief->compute(gray_roi, roiKeypoints, roiDescriptors);
 
-    processVideo(video_path);
+    processVideo(video_path, model_type);
 }

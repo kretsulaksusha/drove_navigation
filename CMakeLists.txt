@@ -6,6 +6,8 @@ project(${PROJECT_NAME} CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(ONNXRUNTIME_DIR "/opt/homebrew/Cellar/onnxruntime/1.21.1")
+
 # Collect sources
 file(GLOB sources src/main.cpp
         src/depth/*.cpp src/detectors/*.cpp src/filters/*.cpp src/video_processor/*.cpp src/utils/*.cpp
@@ -64,6 +66,11 @@ target_include_directories(test_depth_estimation PRIVATE
         include/depth
         include/utils
         ${OpenCV_INCLUDE_DIRS}
+        ${ONNXRUNTIME_DIR}/include
+)
+
+target_link_directories(test_depth_estimation PRIVATE
+        ${ONNXRUNTIME_DIR}/lib
 )
 
 target_include_directories(test_fast_detector PRIVATE
@@ -83,6 +90,6 @@ target_include_directories(test_kalman PRIVATE
 ##########################################################
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
-target_link_libraries(test_depth_estimation ${OpenCV_LIBS})
+target_link_libraries(test_depth_estimation ${OpenCV_LIBS} onnxruntime)
 target_link_libraries(test_fast_detector ${OpenCV_LIBS})
 target_link_libraries(test_kalman ${OpenCV_LIBS})

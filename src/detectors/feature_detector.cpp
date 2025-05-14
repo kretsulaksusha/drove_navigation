@@ -33,7 +33,7 @@ std::vector<std::vector<cv::Point2f>> clusterPoints(const std::vector<cv::Point2
     auto regionQuery = [&](int idx) {
         std::vector<int> neighbors;
         for (size_t i = 0; i < points.size(); ++i) {
-            if (norm(points[idx] - points[i]) <= eps)
+            if (cv::norm(points[idx] - points[i]) <= eps)
                 neighbors.push_back(i);
         }
         return neighbors;

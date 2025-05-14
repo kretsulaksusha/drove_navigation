@@ -8,15 +8,15 @@
 #include <atomic>
 #include "httplib.h"                 // завантажити з https://github.com/yhirose/cpp-httplib
 #ifdef _WIN32
- #include <winsock2.h>
+#include <winsock2.h>
  #pragma comment(lib,"ws2_32.lib")
  using socklen_t = int;
  #define CLOSESOCK closesocket
 #else
- #include <arpa/inet.h>
- #include <sys/socket.h>
- #include <unistd.h>
- #define CLOSESOCK close
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#define CLOSESOCK close
 #endif
 namespace fs = std::filesystem;
 
@@ -148,7 +148,7 @@ int main()
     fs::create_directories(SAVE_DIR);
 
     // 1) TCP-потоки
-    std::thread tPose(poseThread);
+//    std::thread tPose(poseThread);
     std::thread tMap (mapThread);
 
     // 2) HTTP-сервер кадрів
@@ -169,7 +169,8 @@ int main()
     std::cout<<"[HTTP] listening "<<HTTP_PORT<<"\n";
     http.listen("0.0.0.0", HTTP_PORT);
 
-    tPose.join(); tMap.join();
+//    tPose.join();
+    tMap.join();
 #ifdef _WIN32
     WSACleanup();
 #endif

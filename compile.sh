@@ -101,3 +101,9 @@ fi
 if [[ "$remove_dirs" == true ]]; then
   rm -rf ./cmake-build-debug ./cmake-build-release
 fi
+
+g++ scripts/GridWaypointClient.cpp -std=c++17 \
+       $(pkg-config --cflags sdl2 SDL2_ttf) \
+       $(pkg-config --libs   sdl2 SDL2_ttf) \
+       -pthread -o grid_client
+mv grid_client ./bin

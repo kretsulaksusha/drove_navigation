@@ -10,7 +10,14 @@ set(ONNXRUNTIME_DIR "/opt/homebrew/Cellar/onnxruntime/1.21.1")
 
 # Collect sources
 file(GLOB sources src/main.cpp
-        src/depth/*.cpp src/detectors/*.cpp src/filters/*.cpp src/video_processor/*.cpp src/utils/*.cpp
+        src/depth/*.cpp src/detectors/*.cpp src/filters/*.cpp src/utils/*.cpp
+        src/unity_listener/*.cpp src/image_processor/*.cpp
+        include/depth/*.hpp include/detectors/*.hpp include/filters/*.hpp
+        include/utils/*.hpp include/unity_listener/*.hpp include/unity_listener/*.h
+        include/image_processor/*.hpp)
+
+file(GLOB video_processor_sources src/video_processor/*.cpp
+        src/depth/*.cpp src/detectors/*.cpp src/filters/*.cpp src/utils/*.cpp
         include/depth/*.hpp include/detectors/*.hpp include/filters/*.hpp
         include/video_processor/*.hpp include/utils/*.hpp)
 
@@ -42,10 +49,14 @@ pkg_check_modules(EIGEN3 REQUIRED eigen3)
 # Main project executable
 add_executable(${PROJECT_NAME} ${sources})
 
+# Video and Image processor executable
+add_executable(video_processor ${video_processor_sources})
+
 # Test executables
 add_executable(test_depth_estimation ${test_depth_estimation_sources})
 add_executable(test_fast_detector ${test_fast_detector_sources})
 add_executable(test_kalman ${test_kalman_sources})
+add_executable(image_saver scripts/AllInOneServer.cpp)
 
 ##########################################################
 # Include directories
@@ -56,10 +67,31 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         include/depth
         include/detectors
         include/filters
+        include/utils
+        include/image_processor
+        include/unity_listener
+        ${OpenCV_INCLUDE_DIRS}
+        ${EIGEN3_INCLUDE_DIRS}
+        ${ONNXRUNTIME_DIR}/include
+)
+
+target_link_directories(${PROJECT_NAME} PRIVATE
+        ${ONNXRUNTIME_DIR}/lib
+)
+
+target_include_directories(video_processor PRIVATE
+        include/depth
+        include/detectors
+        include/filters
         include/video_processor
         include/utils
         ${OpenCV_INCLUDE_DIRS}
         ${EIGEN3_INCLUDE_DIRS}
+        ${ONNXRUNTIME_DIR}/include
+)
+
+target_link_directories(video_processor PRIVATE
+        ${ONNXRUNTIME_DIR}/lib
 )
 
 target_include_directories(test_depth_estimation PRIVATE
@@ -89,7 +121,8 @@ target_include_directories(test_kalman PRIVATE
 # Link libraries
 ##########################################################
 
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} onnxruntime)
+target_link_libraries(video_processor ${OpenCV_LIBS} onnxruntime)
 target_link_libraries(test_depth_estimation ${OpenCV_LIBS} onnxruntime)
 target_link_libraries(test_fast_detector ${OpenCV_LIBS})
 target_link_libraries(test_kalman ${OpenCV_LIBS})

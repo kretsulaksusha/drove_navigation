@@ -58,11 +58,11 @@ Create a directory called `models` and download the necessary ONNX models for de
 
 Model Comparison (Small Versions):
 
-| Metric             | MiDaS                | Depth Anything V2 | Distill Any Depth |
-|--------------------|----------------------|-------------------|-------------------|
-| **Model Size**     | \~66.8 MB            | \~99.4 MB         | \~99.2 MB         |
-| **FPS**            | \~20-25 FPS          | \~N FPS           | \~N FPS           |
-| **Inference Time** | \~40-50 ms per frame | \~N ms per frame  | \~N ms per frame  |
+| Metric             | MiDaS                | Depth Anything V2      | Distill Any Depth      |
+|--------------------|----------------------|------------------------|------------------------|
+| **Model Size**     | \~66.8 MB            | \~99.4 MB              | \~99.2 MB              |
+| **FPS**            | \~20-25 FPS          | \~2-3 FPS              | \~2-3 FPS              |
+| **Inference Time** | \~40-50 ms per frame | \~350-500 ms per frame | \~350-500 ms per frame |
 
 ### Model Downloads
 
@@ -86,6 +86,22 @@ python3 scripts/distill_any_depth_to_onnx.py
 ```
 
 ## Usage
+
+Run three programs from the `./bin` directory in separate terminals.
+
+```shell
+./bin/drone_navigation
+```
+
+```shell
+./bin/grid_client
+```
+
+```shell
+./bin/image_saver
+```
+
+Then start Unity simulation.
 
 ### Running tests
 
@@ -136,30 +152,50 @@ The results above showcase outputs from all supported models. However, by defaul
 
 To use a different model, you can modify the configuration in the `./src/depth_estimation.cpp` file.
 
-```shell
-./bin/drone_navigation
-```
-
 <div style="display: flex; justify-content: space-between;">
   <img src="./media/test_image_4.png" alt="original_helicopter" style="max-width: 45%;"/>
   <img src="./media/feature_detection_results/test_image_4.png" alt="fast_detector" style="max-width: 45%;"/>
 </div>
 
+For our task it is enough to use MiDaS model, which is the fastest and most lightweight. The results of the feature detection are saved in `./media/feature_detection_results` directory.
+
+---
+
+Run three programs from the `./bin` directory in separate terminals.
+
 ```shell
-./bin/test_kalman
+./bin/drone_navigation
 ```
 
-![kalman](./media/kalman_results/simulation_kf.png)
+![drone_navigation](media/drone_navigation.png)
 
-Terminal output of the program:
-
-```text
-Step: 0 | Measured: (1.23068, 1.39133) | Predicted: (1.22456, 1.38441) | True: (1, 0.5)
-Step: 1 | Measured: (2.36511, -1.48654) | Predicted: (2.35519, -1.41965) | True: (2, 1)
-...
-Step: 68 | Measured: (67.6759, 34.5882) | Predicted: (68.7148, 34.2501) | True: (69, 34.5)
-Step: 69 | Measured: (70.9529, 34.5167) | Predicted: (70.1051, 34.672) | True: (70, 35)
+```shell
+./bin/grid_client
 ```
+
+![grid_client](media/grid_client.png)
+
+```shell
+./bin/image_saver
+```
+
+![grid_client](media/image_saver.png)
+
+Then start Unity simulation:
+
+![original_road](media/unity_sim.png)
+
+Change the position of the drone in grid_client:
+
+![grid_client-2](media/grid_client-2.png)
+
+Observe the results in the `drone_navigation` window:
+
+![drone_navigation-2](media/drone_navigation-2.png)
+
+And in Unity:
+
+![unity_sim-2](media/unity_sim-2.png)
 
 ---
 

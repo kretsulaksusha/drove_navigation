@@ -1,9 +1,23 @@
-#include "video_processor.hpp"
-#include <unordered_map>
-#include <queue>
-#include <cmath>
+#ifndef DRONE_NAVIGATION_IMAGE_PROCESSOR_HPP
+#define DRONE_NAVIGATION_IMAGE_PROCESSOR_HPP
 
-// Configuration defines
+#include <opencv2/opencv.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/xfeatures2d.hpp>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+#include <fstream>
+#include "depth_estimator.hpp"
+#include "kalman.hpp"
+#include "feature_detector.hpp"
+#include "time_meas.hpp"
+#include "path_utils.hpp"
+#include "model_types.hpp"
+
+namespace fs = std::filesystem;
+
 #define MEASURE_TIME 1               // Timing measurement
 #define MAP_HISTORY 10               // Frames to keep in history
 #define CLUSTER_MATCH_DISTANCE 0.5f  // Meters to consider same obstacle
@@ -12,10 +26,6 @@
 #define MAP_HEIGHT 2500               // Map height in pixels
 #define CAMERA_FOV_X 60.0f           // Horizontal FOV in degrees
 #define CAMERA_FOV_Y 45.0f           // Vertical FOV in degrees
-
-// FAST + BRIEF
-cv::Ptr<cv::FastFeatureDetector> fast = cv::FastFeatureDetector::create();
-cv::Ptr<cv::xfeatures2d::BriefDescriptorExtractor> brief = cv::xfeatures2d::BriefDescriptorExtractor::create();
 
 struct Obstacle {
     cv::Point2f image_position;      // Position in image coordinates
@@ -297,180 +307,6 @@ public:
     }
 };
 
-void processVideo(std::string &video_path, ModelType model_type) {
-    cv::VideoCapture video(video_path);
-    if (!video.isOpened()) {
-        std::cerr << "Error: Could not open video." << std::endl;
-        return;
-    }
+void processImage(fs::path &image_path, ModelType model_type = ModelType::DAD);
 
-    int frame_width = static_cast<int>(video.get(cv::CAP_PROP_FRAME_WIDTH));
-    int frame_height = static_cast<int>(video.get(cv::CAP_PROP_FRAME_HEIGHT));
-    cv::Size frame_size(frame_width, frame_height);
-
-    DepthEstimator depth_estimator(model_type);
-    LocalMap local_map;
-
-    cv::namedWindow("Tracking", cv::WINDOW_NORMAL);
-    cv::namedWindow("Local Map", cv::WINDOW_NORMAL);
-    cv::resizeWindow("Local Map", MAP_WIDTH, MAP_HEIGHT);
-
-    cv::Mat frame;
-    while (video.read(frame)) {
-#if MEASURE_TIME
-        auto start_time = get_current_time_fenced();
-#endif
-        // ------ Depth estimation ------
-        cv::Mat depth_map = depth_estimator.infer(frame);
-
-        cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE();
-        clahe->setClipLimit(4.0);
-        cv::Mat depth_enhanced;
-        clahe->apply(depth_map, depth_enhanced);
-
-        cv::Mat depth_filtered;
-        cv::bilateralFilter(depth_enhanced, depth_filtered, 9, 75, 75);
-
-        if (depth_filtered.type() != CV_32F) {
-            depth_filtered.convertTo(depth_filtered, CV_32F);
-        }
-
-        // ------ Feature detection ------
-        cv::Mat gray;
-        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
-
-        std::vector<cv::KeyPoint> keypoints;
-        cv::Mat descriptors;
-        fast->detect(gray, keypoints);
-        brief->compute(gray, keypoints, descriptors);
-
-        applyNMS(keypoints);
-
-        float median_depth = getMedianDepth(depth_filtered);
-
-        std::vector<cv::KeyPoint> filtered_keypoints;
-        for (auto& kp : keypoints) {
-            int x = static_cast<int>(kp.pt.x);
-            int y = static_cast<int>(kp.pt.y);
-            if (x < 0 || x >= depth_filtered.cols || y < 0 || y >= depth_filtered.rows)
-                continue;
-
-            float depth_value = depth_filtered.at<float>(y, x);
-            if (depth_value >= median_depth) {
-                filtered_keypoints.push_back(kp);
-            }
-        }
-
-        std::vector<cv::Point2f> points;
-        for (auto& kp : filtered_keypoints) points.push_back(kp.pt);
-
-        std::vector<float> knn_distances = calculateKnnDistances(points);
-        float eps = determineEps(knn_distances);
-        int minPts = 4;
-
-        auto clusters = clusterPoints(points, eps, minPts);
-
-        // Update local map
-        local_map.update(clusters, depth_filtered, frame_size);
-
-        // ------ Visualization ------
-        const auto& obstacles = local_map.getObstacles();
-
-        // Draw current clusters with distance info
-        for (const auto& cluster : clusters) {
-            if (cluster.empty()) continue;
-
-            cv::Point2f center(0, 0);
-            for (const auto& pt : cluster) center += pt;
-            center *= (1.0f / cluster.size());
-
-            // Calculate average depth for the cluster
-            float depth_sum = 0;
-            int depth_count = 0;
-            for (const auto& pt : cluster) {
-                int x = static_cast<int>(pt.x);
-                int y = static_cast<int>(pt.y);
-                if (x >= 0 && x < depth_filtered.cols && y >= 0 && y < depth_filtered.rows) {
-                    depth_sum += depth_filtered.at<float>(y, x);
-                    depth_count++;
-                }
-            }
-            float avg_depth = depth_count > 0 ? depth_sum / depth_count : 0;
-
-            // Draw cluster points
-            for (const auto& pt : cluster) {
-                cv::circle(frame, pt, 2, cv::Scalar(255, 0, 0), -1);
-            }
-
-            // Draw distance to cluster center
-            std::stringstream dist_ss;
-            dist_ss << std::fixed << std::setprecision(1) << avg_depth << "m";
-            cv::putText(frame, dist_ss.str(), center + cv::Point2f(5, 15),
-                        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(255, 255, 255), 1);
-        }
-
-        // Draw tracked obstacles with enhanced distance info
-        for (const auto& pair : obstacles) {
-            const Obstacle& obs = pair.second;
-
-            // Calculate Euclidean distance from camera
-            float distance = std::sqrt(obs.world_position.x*obs.world_position.x +
-                                       obs.world_position.y*obs.world_position.y);
-
-            // Draw obstacle with distance-based color
-            int green = std::max(0, 255 - static_cast<int>(distance * 20));
-            int red = std::min(255, static_cast<int>(distance * 20));
-            cv::circle(frame, obs.image_position, 6, cv::Scalar(0, green, red), 2);
-
-            // Draw detailed distance info
-            std::stringstream dist_ss;
-            dist_ss << std::fixed << std::setprecision(1)
-                    << "ID:" << pair.first
-                    << " D:" << distance << "m"
-                    << " X:" << obs.world_position.x << "m"
-                    << " Y:" << obs.world_position.y << "m";
-
-            cv::putText(frame, dist_ss.str(), obs.image_position + cv::Point2f(10, -10),
-                        cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 255), 1);
-
-            // Draw distance line from image center to obstacle
-            cv::line(frame, cv::Point(frame.cols/2, frame.rows),
-                     obs.image_position, cv::Scalar(100, 100, 255), 1);
-
-            if (obs.life_time > 1) {
-                cv::arrowedLine(frame, obs.image_position,
-                                obs.image_position + cv::Point2f(obs.velocity.x * 20, 0),
-                                cv::Scalar(255, 0, 255), 2);
-            }
-        }
-
-#if MEASURE_TIME
-        auto end_time = get_current_time_fenced();
-        long long frame_time = to_mcs(end_time - start_time);
-        std::string time_text = "Frame time: " + std::to_string(frame_time) + " µs";
-        cv::putText(frame, time_text, cv::Point(10, 30),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(255, 255, 255), 2);
-
-        std::string obs_text = "Obstacles: " + std::to_string(obstacles.size());
-        cv::putText(frame, obs_text, cv::Point(10, 60),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(255, 255, 255), 2);
-#endif
-
-        cv::imshow("Tracking", frame);
-        cv::imshow("Local Map", local_map.getMapImage());
-
-        if (cv::waitKey(30) == 27) break;
-    }
-
-    video.release();
-    cv::destroyAllWindows();
-}
-
-int main(int argc, char** argv) {
-    std::string video_filename = (argc > 1) ? argv[1] : "helicopter.mp4";
-    std::string video_path = getContentPath(video_filename);
-
-    processVideo(video_path, ModelType::MiDaS);
-
-    return 0;
-}
+#endif //DRONE_NAVIGATION_IMAGE_PROCESSOR_HPP
